@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "bannerTitle": "Chair & Sofa",
+        "bannerImage": "/sofa-banner.jpg",
+        "bannerTagline": "Sit back, relax, and unwind in effortless everyday comfort."
+    },
+    {
+        "id": 2,
+        "bannerTitle": "Table & Drawer",
+        "bannerImage": "/table-banner.jpg",
+        "bannerTagline": "Beautifully crafted storage and surfaces made to simplify your life"
+    },
+    {
+        "id": 3,
+        "bannerTitle": "Accessories",
+        "bannerImage": "/wall-clock-banner.jpg",
+        "bannerTagline": "Charming little pieces that make every corner feel special."
+    },
+    {
+        "id": 4,
+        "bannerTitle": "Bedroom",
+        "bannerImage": "/bedset-banner.jpg",
+        "bannerTagline": "Soft textures and calming tones to soothe your sleep space."
+    }
+]
