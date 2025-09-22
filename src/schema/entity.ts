@@ -21,6 +21,7 @@ interface Product {
     createdBy: string;
     updatedBy: string;
     imageUrl: string;
+    imageUrlSecure: string;
     category : CategoryOnProduct;
 }
 

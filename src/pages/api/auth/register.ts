@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { RestConfiguration } from '@/schema/entity';
 import { getHTTPProps, handleProviderError } from '@/util/httpUtil';
@@ -17,9 +17,9 @@ const registerService = async (req: NextApiRequest, res: NextApiResponse) => {
     })
 
     try {
-        let providerResponse = await agent.post(endpoint, req.body);
+        const providerResponse = await agent.post(endpoint, req.body);
         return res.status(200).json(providerResponse.data);
-    } catch(error: any) {
+    } catch(error: unknown) {
         return handleProviderError(error, res);
     }
 

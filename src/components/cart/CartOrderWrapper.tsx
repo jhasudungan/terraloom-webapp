@@ -21,18 +21,19 @@ const CartOrderWrapper = ({ account } : CartOrderWrapperProps):JSX.Element => {
         if (!confirmOrder) return; 
        
         // Sent an order request to transaction api
-        let orderitems: object[] = []
+        const orderitems: object[] = []
 
         cartItems.forEach(item => {
 
             const price = typeof item.price === 'string' ? parseInt(item.price) : item.price;
             
-            let orderItem: object = {
+            const orderItem: object = {
                 productId: Number(item.id),
                 quantity: Number(item.quantity),
                 priceUsed: Number(price),
                 productName: item.productName,
-                productImageUrl: item.productImage
+                productImageUrl: item.productImage,
+                productImageUrlSecure: item.productImageSecure
             }
 
             orderitems.push(orderItem)
@@ -44,7 +45,7 @@ const CartOrderWrapper = ({ account } : CartOrderWrapperProps):JSX.Element => {
             "deliveryAddress": deliveryAddress
         }
 
-        let response = await fetch('/api/order/order', {
+        const response = await fetch('/api/order/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrderRequest),

@@ -25,12 +25,11 @@ const ProductDetail = ({ product, isLoggedIn }: ProductDetailProps): JSX.Element
             id: String(product.id),
             productName: product.name,
             productImage: product.imageUrl,
+            productImageSecure: product.imageUrlSecure,
             quantity: 1,
             price: product.price,
             total: product.price
         }
-
-        console.log(cartItem);
 
         toast.info(`${product.name} added to cart`, {
             theme: "light",

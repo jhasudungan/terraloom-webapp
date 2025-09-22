@@ -17,7 +17,7 @@ const CartOrderAccountInformation = ({ displayName, deliveryAddress , setDeliver
 
         if (cartItems.length > 0) {
             return (
-                <Button color={"red"} className="w-full" onClick={(e) => clearCart()}>
+                <Button color={"red"} className="w-full" onClick={() => clearCart()}>
                     Empty Cart
                 </Button>
             )
@@ -33,7 +33,7 @@ const CartOrderAccountInformation = ({ displayName, deliveryAddress , setDeliver
 
         if (cartItems.length > 0) {
             return (
-                <Button color={"default"} className="w-full" onClick={(e) => handlePlaceOrder()}>
+                <Button color={"default"} className="w-full" onClick={() => handlePlaceOrder()}>
                     Place Your Order
                 </Button>
             )

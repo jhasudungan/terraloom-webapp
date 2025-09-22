@@ -2,12 +2,13 @@
 import { CartItem } from "@/schema/pagedataschema";
 import { useCart } from "@/store/useCart";
 import { Alert, Button } from "flowbite-react";
+import Image from "next/image";
 import Link from "next/link";
 import { JSX } from "react";
 
 const CartItemList = ():JSX.Element => {
 
-    const { cartItems, increaseItem, decreaseItem , clearCart } = useCart()
+    const { cartItems, increaseItem, decreaseItem  } = useCart()
     
     const handleIncreaseItem = (cartItem: CartItem) => {
         increaseItem(cartItem);
@@ -22,7 +23,7 @@ const CartItemList = ():JSX.Element => {
         if (cartItems.length < 1) {
             return (
                 <Alert>
-                    Your'e cart is empty , start shop now!
+                    Your cart is empty, start shop now!
                 </Alert>
             )
         }
@@ -38,10 +39,12 @@ const CartItemList = ():JSX.Element => {
 
                     <div className="border-1 border-solid border-gray-800 rounded-2xl p-3 my-5 flex gap-3" key={item.id}>
                         <div className="flex-shrink-0">
-                            <img
+                            <Image
                                 src={item.productImage}
                                 alt={item.productName ? item.productName : "Product image"}
-                                className="w-16 h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                                width={100}
+                                height={100}
+                                className="object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                             />
                         </div>
 
@@ -53,11 +56,11 @@ const CartItemList = ():JSX.Element => {
                             <p className="text font-extralight">Rp {item.total ? new Intl.NumberFormat('id-ID').format(item.total) : ""}</p>
 
                             <div className="flex space-x-3 mt-3">
-                                <Button color={"dark"} onClick={(e) => handleIncreaseItem(item)} size="sm">
+                                <Button color={"dark"} onClick={() => handleIncreaseItem(item)} size="sm">
                                     +
                                 </Button>
                                 <p className="text-xl font-semibold">{item.quantity}</p>
-                                <Button color={"dark"} onClick={(e) => handleDecreaseItem(item)} size="sm">
+                                <Button color={"dark"} onClick={() => handleDecreaseItem(item)} size="sm">
                                     -
                                 </Button>
                             </div>

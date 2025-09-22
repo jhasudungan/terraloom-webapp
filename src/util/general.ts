@@ -1,7 +1,7 @@
 
 const extractPage = (searchParams: { [key: string]: string | string[] | undefined }):number => {
 
-    let paramPage = searchParams.page;
+    const paramPage = searchParams.page;
 
     let page:number = 1;
 
@@ -20,7 +20,7 @@ const extractPage = (searchParams: { [key: string]: string | string[] | undefine
 
 const extractQuery = (searchParams: { [key: string]: string | string[] | undefined }):string => {
 
-    let paramQuery = searchParams.query;
+    const paramQuery = searchParams.query;
 
     let query: string = "";
 

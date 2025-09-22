@@ -4,9 +4,6 @@ import OrderDetailCard from "./OrderDetailCard";
 import ListOrderItem from "./ListOrderItem";
 import CancelOrderButtonWrapper from "./CancelOrderButtonWrapper";
 import { OrderWithItems } from "@/schema/entity";
-import { Button } from "flowbite-react";
-import { Link } from "lucide-react";
-import CompletePaymentButtonWrapper from "./CompletePaymentButtonWrapper";
 
 interface OrderDetailWrapper {
     order: OrderWithItems,

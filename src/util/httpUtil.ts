@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 
 const getHTTPPropsWithToken = async (): Promise<RestConfiguration> => {
     
-    let apiCoreHost: string = process.env.CORE_API_HOST || "http://localhost:8081"
+    const apiCoreHost: string = process.env.CORE_API_HOST || "http://localhost:8081"
     
     const cookieStore = await cookies();
     const token = cookieStore.get('token')?.value;
@@ -24,7 +24,7 @@ const getHTTPPropsWithToken = async (): Promise<RestConfiguration> => {
 
 const getHTTPProps = ():RestConfiguration => {
     
-    let apiCoreHost: string = process.env.CORE_API_HOST || "http://localhost:8081"
+    const apiCoreHost: string = process.env.CORE_API_HOST || "http://localhost:8081"
        
     const restConfiguration: RestConfiguration =  {
         apiCoreHost: apiCoreHost,
@@ -45,18 +45,33 @@ const  getQueryParamAsString = (param: string | string[] | undefined, defaultVal
   return param || defaultValue;
 }
 
-export function handleProviderError(error: any, res: NextApiResponse) {
-    console.error("Provider Error:", error?.response?.status, error?.response?.data);
+interface ApiError {
+    response?: {
+        status?: number;
+        data?: unknown;
+    };
+}
 
-     if (error.response?.status === 403) {
-        return res.status(403).json({
-            responseCode: "03",
-            responseMessage: "Access denied"
-        });
-    }
+function isApiError(error: unknown): error is ApiError {
+    return typeof error === 'object' && error !== null && 'response' in error;
+}
 
-    if (error.response?.data) {
-        return res.status(error.response.status || 500).json(error.response.data);
+export function handleProviderError(error: unknown, res: NextApiResponse) {
+    console.error("Provider Error:", error);
+
+    if (isApiError(error)) {
+        console.error("Status:", error.response?.status, "Data:", error.response?.data);
+
+        if (error.response?.status === 403) {
+            return res.status(403).json({
+                responseCode: "03",
+                responseMessage: "Access denied"
+            });
+        }
+
+        if (error.response?.data) {
+            return res.status(error.response.status || 500).json(error.response.data);
+        }
     }
 
     return res.status(500).json({

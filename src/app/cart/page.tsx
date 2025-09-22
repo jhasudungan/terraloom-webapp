@@ -10,7 +10,7 @@ const getAccountDetail = async (): Promise<GetAccountDetailResponse> => {
     const restConfiguration: RestConfiguration = await getHTTPPropsWithToken()
     const endpoint:string = `${restConfiguration.apiCoreHost}/api/v1/account/detail`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.coreAccessToken}`
     }
@@ -20,7 +20,7 @@ const getAccountDetail = async (): Promise<GetAccountDetailResponse> => {
         headers: headers
     })
 
-    let response: AxiosResponse<GetAccountDetailResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetAccountDetailResponse> = await agent.get(endpoint);
 
     return response.data;
 

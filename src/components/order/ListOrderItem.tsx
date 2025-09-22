@@ -1,6 +1,7 @@
 "use client"
 import { OrderItem } from "@/schema/entity";
 import { Modal, ModalBody, ModalHeader } from "flowbite-react";
+import Image from "next/image";
 import Link from "next/link";
 import { JSX, useState } from "react";
 
@@ -32,10 +33,12 @@ const ListOrderItem = ( { orderItems } : ListOrderItemProps): JSX.Element => {
                         
                         {/* Image on the left */}
                         <div className="flex-shrink-0">
-                            <img 
+                            <Image 
                             src={item.product.imageUrl} 
-                            alt={item.product ? item.product.name : "Product image"} 
-                            className="w-16 h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                            alt={item.product ? item.product.name : "Product image"}
+                            width={100}
+                            height={100}
+                            className="object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                             onClick={() => handleImageClick(item.product.imageUrl, item.product?.name)}
                         />
                         </div>
@@ -60,10 +63,12 @@ const ListOrderItem = ( { orderItems } : ListOrderItemProps): JSX.Element => {
             </ModalHeader>
             <ModalBody>
                 <div className="flex justify-center">
-                    <img 
+                    <Image 
                         src={selectedImageUrl} 
                         alt={selectedImageName || "Product image"} 
-                        className="max-w-full max-h-96 object-contain"
+                        className="object-contain"
+                        width={500}
+                        height={500}
                     />
                 </div>
             </ModalBody>

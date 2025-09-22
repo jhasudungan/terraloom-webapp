@@ -23,7 +23,7 @@ const getProducts = async (searchParams : ProductSearchParams): Promise<GetProdu
 
     const endpoint:string = `${restConfiguration.apiCoreHost}/api/v1/products?${params.toString()}`;
     
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
     }
 
@@ -32,7 +32,7 @@ const getProducts = async (searchParams : ProductSearchParams): Promise<GetProdu
         headers: headers
     })
 
-    let response: AxiosResponse<GetProductListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetProductListResponse> = await agent.get(endpoint);
 
     return response.data;
 

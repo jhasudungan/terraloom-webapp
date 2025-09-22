@@ -37,7 +37,7 @@ const renderNoOrder = (orders: Order[]):JSX.Element => {
 
     if (orders.length < 1) {
         return (
-            <Alert color="success">You don't have any order</Alert>
+            <Alert color="success">You dont have any order</Alert>
         )
     }
 

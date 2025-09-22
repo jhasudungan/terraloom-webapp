@@ -3,7 +3,6 @@ import { OrderWithItems } from "@/schema/entity";
 import { Button } from "flowbite-react";
 import { JSX } from "react";
 import { toast } from "react-toastify";
-import CompletePaymentButtonWrapper from "./CompletePaymentButtonWrapper";
 
 interface CancelOrderButtonProps {
     order: OrderWithItems

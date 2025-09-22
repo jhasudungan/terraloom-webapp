@@ -70,7 +70,7 @@ const UpdatePasswordForm = ():JSX.Element => {
                     </p>       
                 </div>
                 
-                <Button onClick={(e) => handleSubmitUpdatePassword()} className="w-full" color={"dark"}>Update</Button>    
+                <Button onClick={() => handleSubmitUpdatePassword()} className="w-full" color={"dark"}>Update</Button>    
             </div>
         </div>
     </>)

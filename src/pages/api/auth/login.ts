@@ -43,7 +43,8 @@ const loginService = async (req: NextApiRequest, res: NextApiResponse) => {
             .status(202)
             .json(providerResponse.data);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
+        console.log(error);
         return handleProviderError(error, res);
     }
     

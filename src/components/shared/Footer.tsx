@@ -1,5 +1,8 @@
-import { Github, Globe, Instagram, Twitter, X } from "lucide-react";
+import { Globe } from "lucide-react";
+import Link from "next/link";
 import { JSX } from "react";
+import { BsTwitterX } from "react-icons/bs";
+import { FaGithub, FaInstagram } from "react-icons/fa6";
 
 const Footer = ():JSX.Element => {
 
@@ -15,18 +18,18 @@ const Footer = ():JSX.Element => {
                             <p className="text text-center font-semibold">Developed by Jeremiah Hasudungan</p>
                         </div>
                         <div className="flex justify-between my-10">
-                            <a href="https://www.instagram.com/jeredungan/">
-                                <Instagram />
-                            </a>
-                            <a href="https://x.com/JHasudungan">
-                                <Twitter />
-                            </a>
-                            <a href="https://github.com/jhasudungan">
-                                <Github />
-                            </a>
-                            <a href="/">
+                            <Link href="https://www.instagram.com/jeredungan/">
+                               <FaInstagram />
+                            </Link>
+                            <Link href="https://x.com/JHasudungan">
+                                <BsTwitterX />
+                            </Link>
+                            <Link href="https://github.com/jhasudungan">
+                                <FaGithub />
+                            </Link>
+                            <Link href="/">
                                 <Globe />
-                            </a>
+                            </Link>
                         </div>
                         <div>
                             <p className="text text-center font-bold">&copy; Terraloom - 2025</p>

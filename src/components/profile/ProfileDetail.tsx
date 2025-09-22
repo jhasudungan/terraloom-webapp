@@ -37,7 +37,7 @@ const ProfileDetail = ({ account }: ProfileDetailProps): JSX.Element => {
             registeredAddress: registeredAddress
         }
 
-        let response = await fetch('/api/account/update', {
+        const response = await fetch('/api/account/update', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(requestBody),
@@ -99,7 +99,7 @@ const ProfileDetail = ({ account }: ProfileDetailProps): JSX.Element => {
                     </div>
                 </div>
                 <div className="gap-3">
-                    <Button onClick={(e) => updateStatus()} className="w-full" color={"dark"}>Update Profile</Button>
+                    <Button onClick={() => updateStatus()} className="w-full" color={"dark"}>Update Profile</Button>
                     <Button as={Link} href={"/updatepassword"} className="w-full mt-2" color={"dark"}>Update Password</Button>
                 </div>
             </div>

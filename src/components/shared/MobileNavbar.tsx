@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, House, ShoppingCart, Store } from "lucide-react";
+import { House, ShoppingCart, Store } from "lucide-react";
 import { JSX } from "react";
 import { Button } from "flowbite-react";
 import LoginLogoutButton from "./LoginLogoutButton";

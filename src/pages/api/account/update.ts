@@ -22,7 +22,8 @@ const updateAccountService = async (req: NextApiRequest, res: NextApiResponse) =
     try {
         const providerResponse = await agent.put(endpoint, req.body);
         return res.status(200).json(providerResponse.data);
-    } catch(error: any) {
+    } catch(error: unknown) {
+        console.error(error);
         return handleProviderError(error, res);
     }
     

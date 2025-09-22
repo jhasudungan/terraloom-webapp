@@ -24,7 +24,7 @@ const getListOfOrder = async (searchParams : OrderSearchParams): Promise<GetAcco
 
     const endpoint:string = `${restConfiguration.apiCoreHost}/api/v1/account/orders?${params.toString()}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.coreAccessToken}`
     }
@@ -34,7 +34,7 @@ const getListOfOrder = async (searchParams : OrderSearchParams): Promise<GetAcco
         headers: headers
     })
 
-    let response: AxiosResponse<GetAccountOrderListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetAccountOrderListResponse> = await agent.get(endpoint);
     
     return response.data;
 

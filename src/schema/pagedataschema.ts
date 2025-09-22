@@ -8,6 +8,7 @@ interface CollectionBanner {
 interface CartItem {
     id: string,
     productImage: string,
+    productImageSecure: string,
     productName: string,
     quantity: number,
     price: number,

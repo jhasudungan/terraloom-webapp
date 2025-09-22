@@ -1,5 +1,4 @@
 "use client"
-import { OrderWithItems } from "@/schema/entity"
 import { Button } from "flowbite-react"
 import Link from "next/link"
 import { JSX } from "react"

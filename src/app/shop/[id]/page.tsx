@@ -16,7 +16,7 @@ const getProductDetail = async (id: string): Promise<GetProductDetailResponse> =
   const restConfiguration: RestConfiguration = getHTTPProps()
   const endpoint:string = `${restConfiguration.apiCoreHost}/api/v1/product/${id}`;
   
-  let headers: object = {
+  const headers: object = {
     "Content-Type": "application/json"
   }
 
@@ -25,7 +25,7 @@ const getProductDetail = async (id: string): Promise<GetProductDetailResponse> =
       headers: headers
   })
 
-  let response: AxiosResponse<GetProductDetailResponse> = await agent.get(endpoint);
+  const response: AxiosResponse<GetProductDetailResponse> = await agent.get(endpoint);
 
   return response.data;
 
