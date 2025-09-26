@@ -33,9 +33,13 @@ const RegisterForm = ():JSX.Element => {
 
         if (res.ok) {
             
-            toast.success("Register Success", {
-                theme: "light"
-            })
+            // Show toast and wait for it to complete
+            toast.success("Register Success ! Happy Shopping", {
+                theme: "light",
+                autoClose: 2000, // Auto close after 2 seconds
+            });
+
+            await new Promise(resolve => setTimeout(resolve, 2200));
 
             window.location.href = "/login";
         
